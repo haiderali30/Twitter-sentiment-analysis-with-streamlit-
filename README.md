@@ -1,2 +1,4 @@
-# Twitter-sentiment-analysis-with-streamlit-
-twitter sentiment analysis with streamlit application
+pip install scikit-learn
+pip install wordcloud
+pip install matplotlib
+pip install pandas
