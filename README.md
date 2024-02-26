@@ -1,9 +1,21 @@
-Necessary libraries:
+# Twitter Sentiment Analysis
 
-pip install scikit-learn
+This project is focused on sentiment analysis of tweets using machine learning techniques. It includes code to preprocess tweet data, train a machine learning model, and make predictions on new tweets.
 
-pip install wordcloud
+## Getting Started
 
-pip install matplotlib
+### Prerequisites
 
-pip install pandas
+Make sure you have the following dependencies installed:
+
+- Python (>=3.6)
+- pandas
+- scikit-learn
+- matplotlib
+- wordcloud
+- streamlit (if running the Streamlit app)
+
+You can install the required dependencies using pip:
+
+```bash
+pip install -r requirements.txt
