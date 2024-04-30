@@ -8,6 +8,10 @@
 # In[1]:
 
 
+import streamlit as st
+
+st.title("Twitter Sentiment Analysis")
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
@@ -251,6 +255,11 @@ clf.predict(['Why are you feeling dejected? Take the quiz:'])
 with open("twitter_sentiment_analysis.pkl", 'rb') as f:
     model = pickle.load(f)
 
+model = pickle.load(open('twitter_sentiment_analysis.pkl','rb'))
+tweet = st.text_input("Enter your tweet here:")
+
+submit = st.button('Make Prediction')
+
 # Function to map predicted values to labels
 def predict_sentiment(tweet):
     # Make predictions
@@ -262,17 +271,25 @@ def predict_sentiment(tweet):
     else:
         return "Negative"
 
+if submit:
+    start = time.time()
+    prediction = predict_sentiment(tweet)
+    end = time.time()
+    st.write('Prediction took ', round(end-start, 2), 'seconds')
+    st.write("Predicted sentiment is: ", prediction)
 
 # In[17]:
 
 
-tweet = "Why are you feeling dejected? Take the quiz:"
-sentiment = predict_sentiment(tweet)
-print("Predicted sentiment:", sentiment)
+# tweet = "Why are you feeling dejected? Take the quiz:"
+# sentiment = predict_sentiment(tweet)
+# print("Predicted sentiment:", sentiment)
 
 
 # In[ ]:
 
 
+# tweet = st.text_input("Enter your tweet here:")
+# submit = st.button('Make Prediction')
 
 
